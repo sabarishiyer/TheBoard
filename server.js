@@ -6,10 +6,18 @@
 //}).listen(port);
 
 var http = require("http");
-var server = http.createServer(function (req, res) {
-    console.log(req.url);
-    res.write("<html> <h1> " + req.url +  "</h1> </html>");
-    res.end();
-});
+var express = require("express");
+var controllers = require("./controllers");
+var app = express();
 
-server.listen(3000);
+
+app.set("view engine", "vash");
+
+
+//map the routes
+controllers.init(app);
+
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000.');
+})
+
