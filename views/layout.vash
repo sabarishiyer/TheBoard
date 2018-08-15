@@ -4,7 +4,6 @@
 	<title>@model.title</title>
 </head>
 
-
 <body>
 	<div>@model.title</div>	
 </body>
