@@ -7,19 +7,19 @@
 
 var http = require("http");
 var express = require("express");
-var bodyParser = require('body-parser');
 var controllers = require("./controllers");
 var app = express();
+var cors = require("cors");
 
 
-app.use(bodyParser.urlencoded({ entended :false}));
-app.use(bodyParser.json());
 app.set("view engine", "vash");
-
+app.use(express.json());
+app.use(cors());
 
 //map the routes
 controllers.init(app);
 
 app.listen(3000, function () {
-    console.log('Listening on port 3000.');
+    console.log('Example app listening on port 3000.');
 })
+
